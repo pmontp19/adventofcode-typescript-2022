@@ -2,16 +2,35 @@ import Puzzle from '../../types/AbstractPuzzle';
 
 export default class ConcretePuzzle extends Puzzle {
   public solveFirst(): string {
-    return 'day 1 solution 1';
+    const elfs: Array<number> = this.input.split('\n\n').map((elf) => {
+      return elf.split('\n').reduce((acc, line) => {
+        return acc + +line;
+      }, 0);
+    });
+    const mostCalories: number = Math.max(...elfs);
+
+    return mostCalories.toString();
   }
   public solveSecond(): string {
-    return 'day 1 solution 2';
+    const elfs: Array<number> = this.input.split('\n\n').map((elf) => {
+      return elf.split('\n').reduce((acc, line) => {
+        return acc + +line;
+      }, 0);
+    });
+    const topThree = elfs
+      .sort((a, b) => b - a)
+      .slice(0, 3)
+      .reduce((acc, line) => {
+        return acc + +line;
+      }, 0);
+
+    return topThree.toString();
   }
 
   public getFirstExpectedResult(): string {
-    return 'day 1 solution 1';
+    return '66616';
   }
   public getSecondExpectedResult(): string {
-    return 'day 1 solution 2';
+    return '199172';
   }
 }
