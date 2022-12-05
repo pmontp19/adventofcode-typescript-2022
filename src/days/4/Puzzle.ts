@@ -68,6 +68,6 @@ export default class ConcretePuzzle extends Puzzle {
 
   public getSecondExpectedResult(): string {
     // RETURN EXPECTED SOLUTION FOR TEST 2;
-    return '4';
+    return '893';
   }
 }
